@@ -39,8 +39,8 @@ public class upDownBar : MonoBehaviour
         slider.value = (ChangedPara - min) / (max - min);
         upButton = GameObject.Find("upButton").GetComponent<Button>();
         downButton = GameObject.Find("downButton").GetComponent<Button>();
-        upButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "+ " + step + unit;
-        downButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = " - " + step +unit;
+        //upButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "+ " + step + unit;
+        //downButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = " - " + step +unit;
 
     }
 
