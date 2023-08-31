@@ -25,6 +25,7 @@ public class InNPCView : MonoBehaviour
         gazeMouse = GameObject.FindObjectOfType<FollowEye>();
         moveByMouseSpeed = ToPersonCamera.MainCamera.GetComponent<MoveRotationCamera>().moveByMouseSpeed;
         gazeContro = GameObject.Find("GazeController").GetComponent<GazeController>();
+        cursor = GameObject.Find("GazeController").GetComponent<GazeController>();
     }
 
     // Update is called once per frame

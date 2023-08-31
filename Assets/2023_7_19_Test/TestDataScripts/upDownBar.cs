@@ -16,19 +16,19 @@ public class upDownBar : MonoBehaviour
     Button downButton;
     public void up() 
     {
-        if(ChangedPara + step > max) { return; }
+        if(ChangedPara + step > max) { ChangedPara = max; return; }
         ChangedPara += step;
         slider.value = (ChangedPara - min) / (max - min);
     }
     public void down() 
     {
-        if (ChangedPara + step < min) { return; }
+        if (ChangedPara + step < min) { ChangedPara = min; return; }
         ChangedPara -= step;
         slider.value = (ChangedPara - min) / (max - min);
     }
     public void slide() 
     {
-        ChangedPara = (min + (max - min) * slider.value);
+       ChangedPara = (min + (max - min) * slider.value);
     }
     
         // Start is called before the first frame update

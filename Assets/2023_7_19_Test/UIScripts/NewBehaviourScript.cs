@@ -14,14 +14,7 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(FollowEye.fixedCountTime >= FollowEye.FixedChooseTime)
-        {
-            count = FollowEye.FixedChooseTime;
-        }
-        else
-        {
-            count = FollowEye.fixedCountTime;
-        }
+        
         float temp = 0;
         if(FollowEye.eyeOnBuil || FollowEye.eyeOnNPC || Description.eyeOnPanel) 
         {
@@ -34,6 +27,15 @@ public class NewBehaviourScript : MonoBehaviour
             {
                 count = temp;
                     }
+        }
+
+        if (FollowEye.fixedCountTime >= temp)
+        {
+            count = temp;
+        }
+        else
+        {
+            count = FollowEye.fixedCountTime;
         }
         GetComponent<TextMeshProUGUI>().text = "" + Mathf.Floor(10 * count / temp) / 10;
     }

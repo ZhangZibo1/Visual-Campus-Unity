@@ -15,9 +15,9 @@ public class FollowEye : MonoBehaviour
     public static AutoNPCController closestNpc;
 
     public float followBuildingMinDistace = -100;
-    public static float FixedChooseTime = 2;
-    public static float EmptyLookTime = 2;
-    public static float blinkTime = 0.2f;
+    public static float FixedChooseTime = 0.5f;
+    public static float EmptyLookTime = 1f;
+    public static float blinkTime = 0.1f;
     
     bool susblink = false;
 

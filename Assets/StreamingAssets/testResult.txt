@@ -1,0 +1,2 @@
+{"order":0,"blinkTime":0.10000000149011612,"errorRadius":100.0,"judgeTime":0.5,"judgeTimeOther":1.0,"changedParaName":"JudegeTime(other)","cameraPosition":1}
+{"order":0,"blinkTime":0.10000000149011612,"errorRadius":100.0,"judgeTime":0.5,"judgeTimeOther":1.0,"changedParaName":"JudegeTime(other)","cameraPosition":1}

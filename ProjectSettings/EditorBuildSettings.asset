@@ -6,24 +6,36 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/PersistentScene.unity
-    guid: 9000684c9becf13458d516a9da72b9ab
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/LogIn.unity
-    guid: eb1aef0dce358a44e9bc6f5c58642453
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/NewStartUpZone.unity
-    guid: 3dfa225356c72f34facd367a1c57800d
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/Demo.unity
-    guid: 851969d7ef280994586b6efc85429e82
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/DemoNight.unity
-    guid: 4dce331a1d24fa4478f51a3f974382f8
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/DemoWorld.unity
-    guid: 3d8d9bc599147ff43a0f37a1d634c8b8
+    path: Assets/2023_7_19_Test/Scene/JudegeTime(other).unity
+    guid: e7cb8efd685a7c74bb4637becabf15aa
   - enabled: 0
-    path: Assets/Scenes/NewDemoInteractive.unity
-    guid: fb9dd9a3a0e22e449b5137cf1e39386e
+    path: Assets/2023_7_19_Test/Scene/BlinkTime.unity
+    guid: 852a0ec43462e474c899b868e208c26d
+  - enabled: 0
+    path: Assets/2023_7_19_Test/Scene/ErrorRadius.unity
+    guid: 68496f83cf1b1b947880cf39feb16dc7
+  - enabled: 0
+    path: Assets/2023_7_19_Test/Scene/JudegeTime(building, UI,chara).unity
+    guid: c4097daae6d15c94aaa44873986a0a19
   m_configObjects: {}

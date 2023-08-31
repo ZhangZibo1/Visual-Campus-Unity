@@ -9,34 +9,41 @@ using System.Data;
 public class ChooseAndAddData : MonoBehaviour
 {
 
+    [System.Serializable]
+    public class ParticipantInfo
+    {
+
+        public int order;
+        public float blinkTime;
+        public float errorRadius;
+        public float judgeTime;
+        public float judgeTimeOther;
+        public string changedParaName;
+        public int cameraPosition;
+    }
+    [System.Serializable]
+    public class ParticiList 
+    {
+        public List<ParticipantInfo> list = new List<ParticipantInfo>();
+    }
     FollowEye gazeMouse;
     public bool chosed = false;
     // Start is called before the first frame update
     void Start()
     {
         gazeMouse = GameObject.FindObjectOfType<FollowEye>();
-        FileInfo newFile = new FileInfo(Application.dataPath + "/testResult.xlsx");
-        //如果文件存在删除重建
+        FileInfo newFile = new FileInfo(Application.streamingAssetsPath + "/testResult.txt");
         
 
-        //数据操作
-        using (ExcelPackage package = new ExcelPackage(newFile))
+        if(newFile.Exists == false) 
         {
-            //初次创建增加数据操作（重点在于这条操作语句不同）
-            ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("testResult");
-
-            //添加对应列名
-            worksheet.Cells[1, 1].Value = "Order Of Participants";
-            worksheet.Cells[1, 2].Value = "Blink Time";
-            worksheet.Cells[1, 3].Value = "Error Radius";
-            worksheet.Cells[1, 4].Value = "Judge Time (building,UI, character)";
-            worksheet.Cells[1, 5].Value = "Judge Time(other)";
-            worksheet.Cells[1, 6].Value = "Where Choose Preference";
-            worksheet.Cells[1, 7].Value = "Camera Position";
-            //保存
-            package.Save();
+           newFile = new FileInfo(Application.streamingAssetsPath + "/testResult.txt");
         }
-        Debug.Log(Application.dataPath);
+        
+
+
+        //数据操作
+        //Debug.Log(Application.dataPath);
     }
 
     // Update is called once per frame
@@ -48,32 +55,24 @@ public class ChooseAndAddData : MonoBehaviour
     {  // not checked// write file
         if (chosed) return;//only once a time
         chosed = true;
-        FileInfo newFile = new FileInfo(Application.dataPath + "/testResult.xlsx");
+        //FileInfo newFile = new FileInfo(Application.streamingAssetsPath + "/testResult.txt");
+        ParticipantInfo pI = new ParticipantInfo();
+        pI.order = 0;
+        pI.blinkTime = FollowEye.blinkTime;
+        pI.errorRadius= gazeMouse.errorLen;
+        pI.judgeTime = FollowEye.FixedChooseTime;
+        pI.judgeTimeOther = FollowEye.EmptyLookTime;
+        pI.changedParaName = gameObject.scene.name;
+        pI.cameraPosition = MoveRotationCamera.CameraNum;
+        string toWrite =  JsonUtility.ToJson(pI);
+        File.AppendAllText(Application.streamingAssetsPath + "/testResult.txt", toWrite);
+
+
         //数据操作
-        using (ExcelPackage package = new ExcelPackage(newFile))
-        {
-            //增加数据操作（重点在于这条操作语句与初次创建添加数据不同）
-            ExcelWorksheet worksheet = package.Workbook.Worksheets["testResult"];
-
-            //添加第二行数据
-            for(int i = 1;i < 100000000 ; i++) 
-            {
-                if(worksheet.Cells[i, 1].Value == null) 
-                {
-                    worksheet.Cells[i, 1].Value = i - 1;
-                    worksheet.Cells[i, 2].Value = FollowEye.blinkTime;
-                    worksheet.Cells[i, 3].Value = gazeMouse.errorLen;
-                    worksheet.Cells[i, 4].Value = FollowEye.FixedChooseTime;
-                    worksheet.Cells[i, 5].Value = FollowEye.EmptyLookTime;
-                    worksheet.Cells[i, 6].Value = gameObject.scene.name;
-                    worksheet.Cells[i, 7].Value = MoveRotationCamera.CameraNum;
-                    break;
-                }
-            }
+        
+        Application.Quit();
+       
            
-
-            //保存
-            package.Save();
-        }
     }
 }
+

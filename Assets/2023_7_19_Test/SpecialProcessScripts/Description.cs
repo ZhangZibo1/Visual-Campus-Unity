@@ -14,8 +14,10 @@ public class Description : MonoBehaviour
     void Start()
     {
         gazeMouse = GameObject.FindObjectOfType<FollowEye>();
-        moveByMouseSpeed = ToPersonCamera.MainCamera.GetComponent<MoveRotationCamera>().moveByMouseSpeed; 
-            }
+        moveByMouseSpeed = ToPersonCamera.MainCamera.GetComponent<MoveRotationCamera>().moveByMouseSpeed;
+        cursor = GameObject.Find("GazeController").GetComponent<GazeController>();
+    }
+    
 
     // Update is called once per frame
     void Update()

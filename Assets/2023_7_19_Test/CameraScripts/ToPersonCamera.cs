@@ -18,7 +18,7 @@ public class ToPersonCamera : MonoBehaviour
     Quaternion npcRotation;
     public static Vector3 eyeHitPoint = Vector3.zero;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         
         //cameraList = GameObject.FindObjectsOfType<Camera>();
@@ -57,7 +57,7 @@ public class ToPersonCamera : MonoBehaviour
         }
 
 
-        if (escape)
+        if (escape && inNPCView)
         {
             inNPCView = false;
             if (activeCamera != null)
@@ -72,7 +72,10 @@ public class ToPersonCamera : MonoBehaviour
             escape = false;
             escUI.SetActive(false);
         }
-
+        if(Input.GetKeyDown(KeyCode.Escape) == true && !inNPCView) 
+        {
+            Application.Quit();
+        }
         if (inNPCView)
         {
             
