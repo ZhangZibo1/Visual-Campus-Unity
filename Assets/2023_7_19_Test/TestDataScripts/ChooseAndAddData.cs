@@ -18,7 +18,7 @@ public class ChooseAndAddData : MonoBehaviour
         public float errorRadius;
         public float judgeTime;
         public float judgeTimeOther;
-        public string changedParaName;
+        
         public int cameraPosition;
     }
     [System.Serializable]
@@ -59,12 +59,12 @@ public class ChooseAndAddData : MonoBehaviour
         ParticipantInfo pI = new ParticipantInfo();
         pI.order = 0;
         pI.blinkTime = FollowEye.blinkTime;
-        pI.errorRadius= gazeMouse.errorLen;
+        pI.errorRadius= FollowEye.errorLen;
         pI.judgeTime = FollowEye.FixedChooseTime;
         pI.judgeTimeOther = FollowEye.EmptyLookTime;
-        pI.changedParaName = gameObject.scene.name;
+        //pI.changedParaName = gameObject.scene.name;
         pI.cameraPosition = MoveRotationCamera.CameraNum;
-        string toWrite =  JsonUtility.ToJson(pI);
+        string toWrite =  JsonUtility.ToJson(pI) +"\n";
         File.AppendAllText(Application.streamingAssetsPath + "/testResult.txt", toWrite);
 
 

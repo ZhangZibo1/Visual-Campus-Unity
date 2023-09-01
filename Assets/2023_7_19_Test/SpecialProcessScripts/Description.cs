@@ -13,6 +13,7 @@ public class Description : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        eyeOnPanel = false;
         gazeMouse = GameObject.FindObjectOfType<FollowEye>();
         moveByMouseSpeed = ToPersonCamera.MainCamera.GetComponent<MoveRotationCamera>().moveByMouseSpeed;
         cursor = GameObject.Find("GazeController").GetComponent<GazeController>();
@@ -51,8 +52,8 @@ public class Description : MonoBehaviour
             float y = Mathf.Abs(cursor.gazeScreenPosition.y - tarPosition.y);
             //Debug.Log(x + " " + y + " " + descritption.GetComponent<RectTransform>().sizeDelta.x / 2 + " " +  descritption.GetComponent<RectTransform>().sizeDelta.y / 2);
 
-            if ( x < descritption.GetComponent<RectTransform>().sizeDelta.x/1920*Screen.width/2 + gazeMouse.errorLen &&
-                y < descritption.GetComponent<RectTransform>().sizeDelta.y/1920*Screen.height/2+ gazeMouse.errorLen)
+            if ( x < descritption.GetComponent<RectTransform>().sizeDelta.x/1920*Screen.width/2 + FollowEye.errorLen &&
+                y < descritption.GetComponent<RectTransform>().sizeDelta.y/1920*Screen.height/2+ FollowEye.errorLen)
             {
                 //Debug.Log("focus on pannel");
                 //Debug.Log("hit Building" + hit.transform.name);

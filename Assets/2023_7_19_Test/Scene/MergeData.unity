@@ -248,10 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtPath:
-  - "D:\\\u8BFE\u4EF6\\ece3200\\virtualCity\\BlinkTime\\virtual-campus_Data\\StreamingAssets"
-  - "D:\\\u8BFE\u4EF6\\ece3200\\virtualCity\\ErrorRadius\\virtual-campus_Data\\StreamingAssets"
-  - "D:\\\u8BFE\u4EF6\\ece3200\\virtualCity\\JudgeTime\\virtual-campus_Data\\StreamingAssets"
-  - "D:\\\u8BFE\u4EF6\\ece3200\\virtualCity\\JudgeTimeOther\\virtual-campus_Data\\StreamingAssets"
+  - "D:\\\u8BFE\u4EF6\\ece3200\\virtualCity\\FourPreference\\virtual-campus_Data\\StreamingAssets"
 --- !u!1 &1973644220
 GameObject:
   m_ObjectHideFlags: 0

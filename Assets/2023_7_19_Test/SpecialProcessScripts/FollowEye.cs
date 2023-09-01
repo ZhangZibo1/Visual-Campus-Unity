@@ -8,16 +8,19 @@ public class FollowEye : MonoBehaviour
 {
     public GazeController gazeContro;
     public static Vector2 target;
-    public float errorLen;//当注视时由于机器测量导致的误差范围，暂定为100
+
+    public static float errorLen = 100;//当注视时由于机器测量导致的误差范围，暂定为100
+    public static float FixedChooseTime = 0.5f;
+    public static float EmptyLookTime = 1f;
+    public static float blinkTime = 0.1f;
+
+
     public int sensitivity = 10;
     public static bool eyeOnNPC = false;
     public static bool eyeOnBuil = false;
     public static AutoNPCController closestNpc;
 
     public float followBuildingMinDistace = -100;
-    public static float FixedChooseTime = 0.5f;
-    public static float EmptyLookTime = 1f;
-    public static float blinkTime = 0.1f;
     
     bool susblink = false;
 
@@ -48,14 +51,14 @@ public class FollowEye : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        errorLen = 100;
+        closeToTarBuilding = false;
         originalScal = transform.localScale;
         transform.localScale = originalScal * errorLen / 50;
 
         gazeContro = GameObject.Find("GazeController").GetComponent<GazeController>();
         followBuildingMinDistace = -100;
         tarBuilding = null;
-        blinkTime = 0.1f;
+        
     }
 
     // Update is called once per frame

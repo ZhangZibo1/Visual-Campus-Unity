@@ -35,7 +35,24 @@ public class upDownBar : MonoBehaviour
         void Start()
     {
         slider = GameObject.Find("Slider").GetComponent<Slider>();
-        Debug.Log(slider.name);
+        //Debug.Log(slider.name);
+        if(gameObject.scene.name == "ErrorRadius") 
+        {
+            ChangedPara = FollowEye.errorLen;
+        }
+        if (gameObject.scene.name == "BlinkTime")
+        {
+            ChangedPara = FollowEye.blinkTime;
+        }
+        if (gameObject.scene.name == "JudegeTime(building, UI,chara)")
+        {
+            ChangedPara = FollowEye.FixedChooseTime;
+        }
+        if (gameObject.scene.name == "JudegeTime(other)")
+        {
+            ChangedPara = FollowEye.EmptyLookTime;
+        }
+
         slider.value = (ChangedPara - min) / (max - min);
         upButton = GameObject.Find("upButton").GetComponent<Button>();
         downButton = GameObject.Find("downButton").GetComponent<Button>();

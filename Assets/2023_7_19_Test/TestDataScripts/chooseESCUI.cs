@@ -21,8 +21,8 @@ public class chooseESCUI : MonoBehaviour
     {
         float x = Mathf.Abs(followEye.transform.position.x - transform.position.x);
         float y = Mathf.Abs(followEye.transform.position.y - transform.position.y);
-        if (x < transform.GetComponent<RectTransform>().sizeDelta.x / 1920 * Screen.width / 2 + followEye.errorLen/2 &&
-                y < transform.GetComponent<RectTransform>().sizeDelta.y / 1920 * Screen.height / 2 + followEye.errorLen/2) 
+        if (x < transform.GetComponent<RectTransform>().sizeDelta.x / 1920 * Screen.width / 2 + FollowEye.errorLen/2 &&
+                y < transform.GetComponent<RectTransform>().sizeDelta.y / 1920 * Screen.height / 2 + FollowEye.errorLen/2) 
         
         {
 

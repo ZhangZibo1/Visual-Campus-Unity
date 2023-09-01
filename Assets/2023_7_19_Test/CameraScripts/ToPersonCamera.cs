@@ -27,6 +27,8 @@ public class ToPersonCamera : MonoBehaviour
         activeCamera = MainCamera;
         activeCamera = MainCamera;
         gazeContro = GameObject.Find("GazeController").GetComponent<GazeController>();
+
+        inNPCView = false;
     }
 
     // Update is called once per frame
