@@ -58,9 +58,9 @@ public class ChooseAndAddData : MonoBehaviour
         //FileInfo newFile = new FileInfo(Application.streamingAssetsPath + "/testResult.txt");
         ParticipantInfo pI = new ParticipantInfo();
         pI.order = 0;
-        pI.blinkTime = FollowEye.blinkTime;
-        pI.errorRadius= FollowEye.errorLen;
-        pI.judgeTime = FollowEye.FixedChooseTime;
+        pI.blinkTime = FollowEye.blinkTime ;
+        pI.errorRadius=FollowEye.errorLen ;
+        pI.judgeTime = FollowEye.FixedChooseTime ;
         pI.judgeTimeOther = FollowEye.EmptyLookTime;
         //pI.changedParaName = gameObject.scene.name;
         pI.cameraPosition = MoveRotationCamera.CameraNum;

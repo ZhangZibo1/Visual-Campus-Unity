@@ -9,6 +9,7 @@ public class upDownBar : MonoBehaviour
     public float step;
     public float max;
     public float min;
+    public float accuracy;
     public string unit;
     Slider slider;
 
@@ -18,18 +19,22 @@ public class upDownBar : MonoBehaviour
     {
         if(ChangedPara + step > max) { ChangedPara = max; return; }
         ChangedPara += step;
+        ChangedPara = Mathf.Round (ChangedPara * accuracy) / accuracy;
+
+
         slider.value = (ChangedPara - min) / (max - min);
     }
     public void down() 
     {
-        if (ChangedPara + step < min) { ChangedPara = min; return; }
+        if (ChangedPara - step < min) { ChangedPara = min; return; }
         ChangedPara -= step;
+        ChangedPara = Mathf.Round(ChangedPara * accuracy) / accuracy;
         slider.value = (ChangedPara - min) / (max - min);
     }
-    public void slide() 
-    {
-       ChangedPara = (min + (max - min) * slider.value);
-    }
+    //public void slide() 
+    //{
+    //   ChangedPara = (min + (max - min) * slider.value);
+    //}
     
         // Start is called before the first frame update
         void Start()
@@ -64,6 +69,6 @@ public class upDownBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<TextMeshProUGUI>().text = "" + ChangedPara + unit;
+        gameObject.GetComponent<TextMeshProUGUI>().text = "" + Mathf.FloorToInt(ChangedPara * 1000)/1000f + unit;
     }
 }
